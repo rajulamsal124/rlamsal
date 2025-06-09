@@ -1,0 +1,37 @@
+---
+import projects from "@/collections/projects.json";
+import Button from "@/components/button.astro";
+import Project from "@/components/project.astro";
+---
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h2
+    class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100"
+  >
+    My Projects
+  </h2>
+  <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl">
+    Here are some of my recent projects. I'm always working on something new, so
+    check back often!
+  </p>
+  <div
+    class="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-10"
+  >
+    {
+      projects.map((project) => {
+        return (
+          <Project
+            name={project.name}
+            description={project.description}
+            image={project.image}
+            url={project.url}
+          />
+        )
+      })
+    }
+  </div>
+
+  <div class="flex items-center justify-center w-full py-5">
+    <Button text="View All My Projects" link="/projects" />
+  </div>
+</section>
